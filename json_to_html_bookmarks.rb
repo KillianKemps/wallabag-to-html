@@ -3,7 +3,7 @@ require 'json'
 require 'time'
 require 'sanitize'
 
-abort "Please give files to process" if ARGV.empty?
+abort "Usage: ./script import-file [export-file]" if ARGV.empty?
 
 input_file = ARGV.shift
 export_filename = ARGV.shift
