@@ -5,6 +5,8 @@ require 'sanitize'
 abort "Please give files to process" if ARGV.empty?
 
 input_file = ARGV.shift
+export_filename = ARGV.shift
+export_filename = 'exported_bookmarks.html' if export_filename.empty? || export_filename.nil?
 
 loaded_file = JSON.load(File.open(input_file))
 
@@ -29,7 +31,7 @@ end
 
 output << output_end
 
-output_file = File.open('exported_bookmarks.html', 'w')
+output_file = File.open(export_filename, 'w')
 
 output_file.write(output)
 
