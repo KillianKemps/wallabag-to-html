@@ -24,7 +24,7 @@ output_end = '</DL><p>'
 output = output_begin
 
 for item in loaded_file do
-  article = "<DT><A HREF=\"#{item['url']}\" ADD_DATE=\"#{Time.parse(item['created_at']).to_i}\" TAGS=\"#{item['tags'].join(',')}\">#{item['title']}</A>\n"
+  article = "<DT><A HREF=\"#{item['url']}\" ADD_DATE=\"#{Time.parse(item['created_at']).to_i}\" LAST_MODIFIED=\"#{Time.parse(item['updated_at']).to_i}\" TAGS=\"#{item['tags'].join(',')}\">#{item['title']}</A>\n"
   output << article
   article_content = "<DD>#{Sanitize.clean(item['content']).to_s[/^.{150}\s/]}\n"
   output << article_content
